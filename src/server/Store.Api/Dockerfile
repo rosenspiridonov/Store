@@ -26,5 +26,5 @@ RUN dotnet publish "Store.Api.csproj" -c Release -o /app/publish /p:UseAppHost=f
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-COPY --from=build /src/Store.Data/bin/Release/net7.0/* /app/publish/
+COPY --from=build /src/Store.Data/bin/Debug/net7.0/* /app/publish/
 ENTRYPOINT ["dotnet", "Store.Api.dll"]

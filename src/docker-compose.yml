@@ -17,13 +17,13 @@ services:
 
   server:
     container_name: server
-    image: rosenspiridonov/dockertestapp
+    image: rosenspiridonov/storeapi
     build:
         dockerfile: ./server/Store.Api/Dockerfile
     ports:
       - "5500:80"
     environment:
-      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=MyDb;User Id=sa;Password=yourStrongPassword12#$;MultipleActiveResultSets=true;encrypt=False
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=Store;User Id=sa;Password=yourStrongPassword12#$;MultipleActiveResultSets=true;encrypt=False
     volumes:
       - data-protection:/root/.aspnet/DataProtection-Keys
     networks:
@@ -34,7 +34,7 @@ services:
       
   client:
     container_name: client
-    image: rosenspiridonov/dockertestappclient
+    image: rosenspiridonov/storeclient
     build:
         dockerfile: ./client/Dockerfile
     ports:
