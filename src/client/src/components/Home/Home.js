@@ -4,7 +4,7 @@ function Home() {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:5500/home/test')
+        fetch('http://localhost:5500/home')
             .then(response => response.json())
             .then(data => setData(data))
             .catch(error => console.error(error));
